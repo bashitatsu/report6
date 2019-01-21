@@ -10,9 +10,12 @@ public class Card {
             MEMBER_NUM = 4;
 
     ArrayList<Integer> yamahuda;
+    static int field_number = 0;
+    static int pass_number = 0;
 
     public Card(){
         this.yamahuda = allcard();
+
     }
 
     public ArrayList allcard(){
