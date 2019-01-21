@@ -12,7 +12,7 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
-        while (pr.win==false || com1.win==false || com2.win==false || com3.win==false){
+        while (pr.win==false | com1.win==false | com2.win==false | com3.win==false){
             if (card.pass_number == 3){
                 System.out.println("場が流れたので親は"+pr.name+"です。");
                 card.field_number = 0;
