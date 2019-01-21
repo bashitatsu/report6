@@ -18,8 +18,12 @@ public class Enemy{
         this.win = false;
     }
 
+    /**
+     * sortメソッドの2次元配列から1次元配列を取り出し、ArrayListに変換する.
+     * @return ArrayList.
+     */
     public ArrayList<Integer> enemy_tehuda(){
-        int[][] tehuda = card.seiri();
+        int[][] tehuda = card.sort();
         int x_number = 0;
         int[] my_tehuda = new int[1];
         for (int[] a_tehuda: tehuda){
@@ -36,6 +40,9 @@ public class Enemy{
         return this.tehuda;
     }
 
+    /**
+     * 手札からカードを場に出す。
+     */
     public void put_out(){
 
         if (card.pass_number == 3){
@@ -57,7 +64,7 @@ public class Enemy{
         }
 
         for (int num: this.tehuda){
-            if (num == original_num & enemy_card_num>card.field_number){
+            if (num == original_num & enemy_card_num > card.field_number){
                 this.tehuda.remove(size_num);
                 System.out.println(this.name+"が"+num+"を出しました。");
                 card.field_number = enemy_card_num;

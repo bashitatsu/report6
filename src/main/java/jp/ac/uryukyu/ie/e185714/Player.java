@@ -17,8 +17,12 @@ public class Player {
         this.win = false;
     }
 
+    /**
+     * sortメソッドの2次元配列から1次元配列を取り出し、ArrayListに変換する.
+     * @return ArrayList.
+     */
     public ArrayList<Integer> my_tehuda(){
-        int[][] tehuda = card.seiri();
+        int[][] tehuda = card.sort();
         int x_number = 0;
         int[] my_tehuda = new int[1];
         for (int[] a_tehuda: tehuda){
@@ -35,6 +39,10 @@ public class Player {
         return this.tehuda;
     }
 
+    /**
+     * 手札からカードを場に出す.
+     * @param input_num 入力した数字.
+     */
     public void put_out(int input_num){
         int card_num = input_num;
         int tehuda_size = this.tehuda.size();
@@ -44,7 +52,7 @@ public class Player {
         }
 
         for (int num: tehuda){
-            if (card_num == num & input_num>card.field_number){
+            if (card_num == num & input_num > card.field_number){
                 this.tehuda.remove(size_num);
                 System.out.println("あなたが"+num+"を出しました。");
                 card.field_number = input_num;
@@ -62,6 +70,10 @@ public class Player {
         }
 
     }
+
+    /**
+     * パスを実行するメソッド.
+     */
     public void pass(){
         System.out.println("あなたはパスしました。");
         card.pass_number++;

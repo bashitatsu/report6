@@ -10,15 +10,18 @@ public class Card {
             MEMBER_NUM = 4;
 
     ArrayList<Integer> yamahuda;
-    static int field_number = 0;
-    static int pass_number = 0;
+    static int field_number = 0;//場に出ているカードの番号を保存するグローバル変数
+    static int pass_number = 0;//passが連続で何回起きているかを保存するグローバル変数
 
     public Card(){
         this.yamahuda = allcard();
-
     }
 
-    public ArrayList allcard(){
+    /**
+     * 1~13の整数を4セット生成する.
+     * @return 1~13の整数が4セット入ったArrayList.
+     */
+    public ArrayList<Integer> allcard(){
         ArrayList<Integer> yamahuda = new ArrayList<Integer>();
         for (int i = 0; i < MEMBER_NUM; i++) {
             for (int n = 0; n < CARD_NUM; n++) {
@@ -28,7 +31,10 @@ public class Card {
         return yamahuda;
     }
 
-
+    /**
+     * allcardメソッドで得た配列の要素を4等分にする.
+     * @return int型の2次元配列.
+     */
     public int[][] haihu() {
         int tehuda[][] = new int[MEMBER_NUM][CARD_NUM];
         int k = 0;
@@ -45,16 +51,20 @@ public class Card {
         return tehuda;
     }
 
-    public int[][] seiri(){
+    /**
+     * haihuメソッドの要素を昇順にソートする.
+     * @return int型の2次元配列.
+     */
+    public int[][] sort(){
         int[][] tehuda = haihu();
-        int[][] my_tehuda = new int[MEMBER_NUM][CARD_NUM];
+        int[][] your_tehuda = new int[MEMBER_NUM][CARD_NUM];
         int n = 0;
         for (int[] tehuda2: tehuda){
             Arrays.sort(tehuda2);
-            my_tehuda[n] = tehuda2;
+            your_tehuda[n] = tehuda2;
             n++;
         }
-        return my_tehuda;
+        return your_tehuda;
     }
 
 }
